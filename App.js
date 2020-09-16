@@ -42,7 +42,6 @@ const App: () => React$Node = () => {
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Hello World</Text>
             </View>
-            <LearnMoreLinks />
           </View>
         </ScrollView>
       </SafeAreaView>
