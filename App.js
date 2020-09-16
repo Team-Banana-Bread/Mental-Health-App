@@ -14,6 +14,7 @@ import {
   View,
   Text,
   StatusBar,
+  ActivityIndicator, ImagePropTypes
 } from 'react-native';
 
 import {
@@ -24,29 +25,66 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Hello World</Text>
-            </View>
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
+export default class App extends React.Component {
+
+constructor(props){
+  super(props);
+  this.state = {
+    isLoading: true,
+    dataSource: null,
+  }
+}
+
+componentDidMount (){
+
+  return fetch('https://www.reddit.com/r/UpliftingNews/new.json?limit=5')
+    .then ( (response) => response.json() )
+    .then( (responseJson) => {
+
+      this.setState({
+        isLoading: false,
+        dataSource: responseJson.data.children,
+      })
+
+    })
+
+    .catch((error) => {
+      console.log(error)
+    })
+    
+
+}
+
+
+  render(){
+
+    if (this.state.isLoading) {
+
+      return (
+        <View style={styles.sectionContainer}>
+          <Text>Loading...</Text>
+        </View>
+      )
+
+    } else {
+
+      let movies = this.state.dataSource.map((val, key) => {
+        return <View key={key} style={styles.item}>
+              <Text>{val.data.title}</Text>
+        </View>
+      });
+
+      return (
+
+        <View style={styles.item}>
+          {movies}
+        </View>
+
+      );
+
+    }
+
+  } 
 };
 
 const styles = StyleSheet.create({
@@ -86,6 +124,14 @@ const styles = StyleSheet.create({
     paddingRight: 12,
     textAlign: 'right',
   },
+  item: {
+    flex: 1,
+    alignSelf: 'stretch',
+    margin: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee'
+  }
 });
 
-export default App;

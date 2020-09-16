@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7475aa98-02e8-40f5-bd13-cf2e769b5303" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,14 +58,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1600204968398" />
-    <state x="110" y="120" width="1060" height="440" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1600241709788">
+    <state x="110" y="120" width="1060" height="440" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1600292143650">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="110" y="120" width="1060" height="440" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1280.680@0.0.1280.680" timestamp="1600241709788" />
-    <state x="335" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1600241459119">
+    <state x="110" y="120" width="1060" height="440" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1280.680@0.0.1280.680" timestamp="1600292143650" />
+    <state x="335" y="164" key="com.intellij.ide.util.TipDialog" timestamp="1600292110545">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="335" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1600241459119" />
+    <state x="335" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1600292110545" />
     <state x="297" y="153" key="run.anything.popup" timestamp="1600239535084">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
