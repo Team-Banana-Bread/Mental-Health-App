@@ -25,6 +25,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import Icon from 'react-native-vector-icons/Ionicons';
+
 export default class App extends React.Component {
 
 constructor(props){
@@ -71,6 +73,7 @@ componentDidMount (){
       let movies = this.state.dataSource.map((val, key) => {
         return <View key={key} style={styles.item}>
               <Text>{val.data.title}</Text>
+              <Icon name="md-menu" size={30} />
         </View>
       });
 
