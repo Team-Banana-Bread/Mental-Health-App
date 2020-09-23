@@ -19,6 +19,8 @@ import {
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import LoginPage from './src/components/LoginPage';
+import { createStackNavigator } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default class App extends React.Component {
 

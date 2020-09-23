@@ -6,7 +6,11 @@ import{
     TextInput,
     TouchableOpacity,
 } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import GoodNews from './GoodNews';
 
+const Stack = createStackNavigator();
 
 export default class LoginPage extends React.Component {
     render() {
@@ -24,7 +28,7 @@ export default class LoginPage extends React.Component {
                 secureTextEntry={true} 
                 underlineColorAndroid={'transparent'} />
 
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={() => console.log('test')}>
                     <Text style={styles.btntext}> Sign up</Text>
                 </TouchableOpacity>
             </View>
