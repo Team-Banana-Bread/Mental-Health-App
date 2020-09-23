@@ -8,10 +8,8 @@ import{
 } from 'react-native';
 
 
-export default class Registration extends React.Component {
-
+export default class LoginPage extends React.Component {
     render() {
-
         return (
             <View style = {styles.LoginPage}>
                 <Text style={styles.header}>Registration</Text>
@@ -26,8 +24,8 @@ export default class Registration extends React.Component {
                 secureTextEntry={true} 
                 underlineColorAndroid={'transparent'} />
 
-                <TouchableOpacity style={styles.button} onPress={() => console.log("test")}>
-                    <Text style={styles.btntext}>Sign up</Text>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.btntext}> Sign up</Text>
                 </TouchableOpacity>
             </View>
         );

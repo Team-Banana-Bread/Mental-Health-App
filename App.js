@@ -1,10 +1,24 @@
 import React from 'react';
 import {
+  SafeAreaView,
   StyleSheet,
+  ScrollView,
   View,
+  Text,
+  StatusBar,
+  ActivityIndicator, ImagePropTypes
 } from 'react-native';
 
-import Registration from './src/components/Registration';
+import {
+  Header,
+  LearnMoreLinks,
+  Colors,
+  DebugInstructions,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
+
+import Icon from 'react-native-vector-icons/Ionicons';
+import LoginPage from './src/components/LoginPage';
 
 export default class App extends React.Component {
 
@@ -12,7 +26,7 @@ export default class App extends React.Component {
     
       return (
         <View style={styles.container}>
-          <Registration />
+          <LoginPage />
         </View>
       )
 

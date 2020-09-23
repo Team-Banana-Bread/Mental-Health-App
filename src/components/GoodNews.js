@@ -8,18 +8,26 @@
 
 import React from 'react';
 import {
+  SafeAreaView,
   StyleSheet,
+  ScrollView,
   View,
   Text,
+  StatusBar,
+  ActivityIndicator, ImagePropTypes
 } from 'react-native';
 
 import {
+  Header,
+  LearnMoreLinks,
   Colors,
+  DebugInstructions,
+  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default class GoodNews extends React.Component {
+export default class App extends React.Component {
 
 constructor(props){
   super(props);
