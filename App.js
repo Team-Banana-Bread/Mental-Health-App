@@ -2,36 +2,17 @@ import React from 'react';
 import * as eva from '@eva-design/eva';
 import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  ActivityIndicator, ImagePropTypes
 } from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-import Icon from 'react-native-vector-icons/Ionicons';
-import LoginPage from './src/components/LoginPage';
-import { createStackNavigator } from '@react-navigation/native';
-import { NavigationContainer } from '@react-navigation/native';
 
 export default class App extends React.Component {
 
   render(){
     
       return (
-        <View style={styles.container}>
-          <LoginPage />
-        </View>
+          <ApplicationProvider {...eva} theme={eva.dark}>
+             <HomeScreen />
+          </ApplicationProvider>
       )
 
   } 
@@ -53,9 +34,5 @@ const HomeScreen = () => (
   </Layout>
 );
 
-export default () => (
-  <ApplicationProvider {...eva} theme={eva.dark}>
-    <HomeScreen />
-  </ApplicationProvider>
-);
+
 
