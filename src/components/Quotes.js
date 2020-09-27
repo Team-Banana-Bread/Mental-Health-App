@@ -70,7 +70,7 @@ componentDidMount (){
 
     } else {
 
-      let movies = this.state.dataSource.map((val, key) => {
+      let quotes = this.state.dataSource.map((val, key) => {
         return <View key={key} style={styles.item}>
               <Text>{val.data.title}</Text>
               <Icon name="md-menu" size={30} />
@@ -80,7 +80,7 @@ componentDidMount (){
       return (
 
         <View style={styles.item}>
-          {movies}
+          {quotes}
         </View>
 
       );
