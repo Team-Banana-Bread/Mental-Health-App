@@ -1,6 +1,7 @@
 import React from 'react';
 import * as eva from '@eva-design/eva';
-import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
+import { ApplicationProvider, Layout, Text, Button } from '@ui-kitten/components';
+import { AppNavigator } from './Navigator';
 
 export default class App extends React.Component {
 
@@ -8,18 +9,11 @@ export default class App extends React.Component {
     
       return (
           <ApplicationProvider {...eva} theme={eva.dark}>
-             <HomeScreen />
+            <AppNavigator/>
           </ApplicationProvider>
       )
 
   } 
 };
-
-const HomeScreen = () => (
-  <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-    <Text category='h1'>HOME</Text>
-  </Layout>
-);
-
 
 

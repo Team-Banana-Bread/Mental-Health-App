@@ -1,21 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 import{
     StyleSheet,
     Text,
     View,
     TextInput,
-    TouchableOpacity,
 } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
-import GoodNews from './GoodNews';
+import { Button } from '@ui-kitten/components';
 
-const Stack = createStackNavigator();
 
-export default class LoginPage extends React.Component {
-    render() {
-        return (
-            <View style = {styles.LoginPage}>
+export const LoginScreen = () => (
+
+            <View style = {styles.container}>
                 <Text style={styles.header}>Registration</Text>
 
                 <TextInput style={styles.textinput} placeholder="Email" 
@@ -28,17 +23,19 @@ export default class LoginPage extends React.Component {
                 secureTextEntry={true} 
                 underlineColorAndroid={'transparent'} />
 
-                <TouchableOpacity style={styles.button} onPress={() => console.log('test')}>
+                <Button style={styles.button}>
                     <Text style={styles.btntext}> Sign up</Text>
-                </TouchableOpacity>
+                </Button>
             </View>
-        );
-    }
-}
+    );
 
 const styles = StyleSheet.create({
-    LoginPage: {
-        alignSelf: 'stretch',
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        backgroundColor: '#36485f',
+        paddingLeft: 60,
+        paddingRight: 60,
     },
     header: {
         fontSize: 24,
@@ -50,9 +47,9 @@ const styles = StyleSheet.create({
     },
     textinput: {
         alignSelf: 'stretch',
+        color: '#4157c7',
         height: 40,
-        marginBottom: 30,
-        color: '#fff',
+        marginBottom: 35,
         borderBottomColor: '#f8f8f8',
         borderBottomWidth: 1,
     },
