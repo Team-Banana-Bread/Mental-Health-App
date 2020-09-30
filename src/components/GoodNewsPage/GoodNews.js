@@ -13,16 +13,11 @@ import {
   ScrollView,
   View,
   Text,
-  StatusBar,
-  ActivityIndicator, ImagePropTypes
+  Linking
 } from 'react-native';
 
 import {
-  Header,
-  LearnMoreLinks,
   Colors,
-  DebugInstructions,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -39,7 +34,7 @@ constructor(props){
 
 componentDidMount (){
 
-  return fetch('https://www.reddit.com/r/UpliftingNews/new.json?limit=5')
+  return fetch('https://www.reddit.com/r/UpliftingNews/new.json')
     .then ( (response) => response.json() )
     .then( (responseJson) => {
 
@@ -72,7 +67,9 @@ componentDidMount (){
 
       let movies = this.state.dataSource.map((val, key) => {
         return <View key={key} style={styles.item}>
-              <Text>{val.data.title}</Text>
+              <Text onPress={() => Linking.openURL(val.data.url_overridden_by_dest)}>
+                {val.data.title}
+              </Text>
               <Icon name="md-menu" size={30} />
         </View>
       });
