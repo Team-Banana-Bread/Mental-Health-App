@@ -7,7 +7,7 @@ import{
 } from 'react-native';
 import { Button } from '@ui-kitten/components';
 
-export const LoginScreen = ({navigation}) => {    
+export const SignUp = ({navigation}) => {    
 
     const navigationSignUp = () => {
         navigation.navigate('SignUp');
@@ -16,20 +16,17 @@ export const LoginScreen = ({navigation}) => {
     return (    
 
             <View style = {styles.container}>
-                <Text style={styles.header}>Sign In</Text>
+                <Text style={styles.header}>Sign Up</Text>
+
+                <TextInput style={styles.textinput} placeholder="Name" placeholderTextColor = '#f8f8f8'
+                underlineColorAndroid={'transparent'} />  
 
                 <TextInput style={styles.textinput} placeholder="Email" placeholderTextColor = '#f8f8f8'
                 underlineColorAndroid={'transparent'} />                
 
                 <TextInput style={styles.textinput} placeholder="Password" placeholderTextColor = '#f8f8f8'
                 secureTextEntry={true} 
-                underlineColorAndroid={'transparent'} />
-
-                <Button style={styles.buttonSignIn}>
-                    <Text style={styles.buttonSignInTextColor}> Sign in</Text>
-                </Button>
-
-                <Text style = {styles.SignUpText}>Don't Have an Account? </Text>
+                underlineColorAndroid={'transparent'} />         
 
                 <Button style={styles.buttonSignUp} onPress={navigationSignUp}>
                     <Text style={styles.buttonSignUpTextColor}> Sign up</Text>                    
