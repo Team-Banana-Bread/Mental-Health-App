@@ -11,17 +11,20 @@ import { Button } from '@ui-kitten/components';
 export const LoginScreen = () => (
 
             <View style = {styles.container}>
-                <Text style={styles.header}>Registration</Text>
+                <Text style={styles.header}>Sign In</Text>
 
-                <TextInput style={styles.textinput} placeholder="Email" 
-                underlineColorAndroid={'transparent'} />
+                <TextInput style={styles.textinput} placeholder="Email" placeholderTextColor = '#f8f8f8'
+                underlineColorAndroid={'transparent'} />                
 
-                <TextInput style={styles.textinput} placeholder="Name" 
-                underlineColorAndroid={'transparent'} />
-
-                <TextInput style={styles.textinput} placeholder="Password"
+                <TextInput style={styles.textinput} placeholder="Password" placeholderTextColor = '#f8f8f8'
                 secureTextEntry={true} 
                 underlineColorAndroid={'transparent'} />
+
+                <Button style={styles.button}>
+                    <Text style={styles.btntext}> Sign in</Text>
+                </Button>
+
+                <Text style = {styles.SignUpText}>Don't Have an Account? </Text>
 
                 <Button style={styles.button}>
                     <Text style={styles.btntext}> Sign up</Text>
@@ -38,6 +41,7 @@ const styles = StyleSheet.create({
         paddingRight: 60,
     },
     header: {
+        textAlign: 'center',
         fontSize: 24,
         color: '#fff',
         paddingBottom: 10,
@@ -45,13 +49,18 @@ const styles = StyleSheet.create({
         borderBottomColor: '#199187',
         borderBottomWidth: 1,
     },
-    textinput: {
+    textinput: {        
         alignSelf: 'stretch',
-        color: '#4157c7',
+        color: '#f8f8f8',
         height: 40,
         marginBottom: 35,
         borderBottomColor: '#f8f8f8',
         borderBottomWidth: 1,
+    },
+    SignUpText: {
+        textAlign: 'center',
+        color: '#f8f8f8',
+        marginTop: 30
     },
     button: {
         alignSelf: 'stretch',
