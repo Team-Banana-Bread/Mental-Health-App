@@ -1,15 +1,11 @@
-
 import React from 'react';
 import {
   StyleSheet,
   View,
-  Text,
   Linking,
+  Image
 } from 'react-native';
-
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
+import { Text } from '@ui-kitten/components';
 
 export default class App extends React.Component {
 
@@ -55,6 +51,7 @@ componentDidMount (){
 
       let movies = this.state.dataSource.map((val, key) => {
         return <View key={key} style={styles.item}>
+              <Image source={{uri:val.data.thumbnail}} style={{width: 300, height: 150, marginTop: 50}}/>
               <Text onPress={() => Linking.openURL(val.data.url_overridden_by_dest)}
                     style={styles.sectionDescription}>
                 {val.data.title}
@@ -80,17 +77,16 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 18,
     fontWeight: 'normal',
-    fontFamily: 'normal',
-    color: 'black',
+    fontFamily: 'sans-serif-medium',
+    color: '#e7e7e7',
   },
   item: {
     flex: 1,
-    margin: 10,
     alignSelf: 'stretch',
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
-    backgroundColor: '#fff',
+    backgroundColor: '#213159',
   }
 });
