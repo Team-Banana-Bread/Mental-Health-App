@@ -7,15 +7,22 @@ import{
 } from 'react-native';
 import { Button } from '@ui-kitten/components';
 
-export const SignUp = ({navigation}) => {    
+export const SignUp = ({navigation}) => {       
 
     const navigationSignUp = () => {
         navigation.navigate('SignUp');
+    };    
+
+    const navigationLogin = () => {
+        navigation.navigate('Login');
     };
 
-    return (    
+    return (                
 
             <View style = {styles.container}>
+
+                <Button class = "arrow left" style = {styles.BackButton} onPress={navigationLogin}>Back</Button>
+
                 <Text style={styles.header}>Sign Up</Text>
 
                 <TextInput style={styles.textinput} placeholder="Name" placeholderTextColor = '#f8f8f8'
@@ -32,7 +39,7 @@ export const SignUp = ({navigation}) => {
                     <Text style={styles.buttonSignUpTextColor}> Sign up</Text>                    
                 </Button>
             </View>
-    )};        
+    )};
 
 const styles = StyleSheet.create({
     container: {
@@ -87,5 +94,11 @@ const styles = StyleSheet.create({
     buttonSignUpTextColor:{
         color: '#15424f',
         fontWeight: 'bold',
+    },
+    BackButton: {
+        backgroundColor:  '#00000000',
+        marginBottom: 35,
+        height: '4%',
+        width: '25%'                                         
     }
 });
