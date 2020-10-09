@@ -2,6 +2,8 @@ import React from 'react';
 import * as eva from '@eva-design/eva';
 import { ApplicationProvider, Layout, Text, Button } from '@ui-kitten/components';
 import { AppNavigator } from './Navigator';
+import PersonalJournal from './src/components/PersonalJournal/PersonalJournal';
+import EntryScreen from './src/components/PersonalJournal/EntryScreen';
 
 export default class App extends React.Component {
 
@@ -9,7 +11,7 @@ export default class App extends React.Component {
     
       return (
           <ApplicationProvider {...eva} theme={eva.dark}>
-            <AppNavigator/>
+            <PersonalJournal/>
           </ApplicationProvider>
       )
 
