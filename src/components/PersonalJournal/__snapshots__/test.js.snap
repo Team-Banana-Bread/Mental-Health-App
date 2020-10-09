@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#97D3BF",
+        "borderBottomColor": "#AECCC2",
+        "borderBottomWidth": 5,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 20,
+          "padding": 26,
+        }
+      }
+    >
+       JOURNAL 
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#97D3BF",
+        "borderRadius": 50,
+        "bottom": 20,
+        "elevation": 8,
+        "height": 90,
+        "justifyContent": "center",
+        "opacity": 1,
+        "position": "absolute",
+        "right": 20,
+        "width": 90,
+        "zIndex": 11,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#fff",
+          "fontSize": 24,
+        }
+      }
+    >
+      +
+    </Text>
+  </View>
+  <RCTScrollView
+    style={
+      Object {
+        "flex": 1,
+        "marginBottom": 100,
+      }
+    }
+  >
+    <View />
+  </RCTScrollView>
+</View>
+`;
