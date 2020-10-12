@@ -9,9 +9,12 @@ export default class App extends React.Component {
   render(){
     
       return ( 
+        <>
           <ApplicationProvider {...eva} theme={eva.dark}>
             <AppNavigator/>
           </ApplicationProvider>
+          <IconRegistry icons={EvaIconsPack} />
+        </>
       )
 
   } 
