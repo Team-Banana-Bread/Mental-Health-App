@@ -5,7 +5,7 @@ import{
     View,
     TextInput,
 } from 'react-native';
-import { Button, Divider, Layout, TopNavigation } from '@ui-kitten/components';
+import { Button } from '@ui-kitten/components';
 
 
 export const LoginScreen = () => (
