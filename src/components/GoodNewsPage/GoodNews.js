@@ -51,7 +51,7 @@ componentDidMount (){
 
       let movies = this.state.dataSource.map((val, key) => {
         return <View key={key} style={styles.item}>
-              <Image source={{uri:val.data.thumbnail}} style={{width: 300, height: 150, marginTop: 50}}/>
+              <Image source={{uri:val.data.thumbnail}} style={ styles.imageStyle }/>
               <Text onPress={() => Linking.openURL(val.data.url_overridden_by_dest)}
                     style={styles.sectionDescription}>
                 {val.data.title}
@@ -73,20 +73,31 @@ componentDidMount (){
 };
 
 const styles = StyleSheet.create({
+
   sectionDescription: {
-    marginTop: 8,
+    marginTop: 10,
+    marginBottom: 25,
     fontSize: 18,
     fontWeight: 'normal',
     fontFamily: 'sans-serif-medium',
-    color: '#e7e7e7',
+    color: 'white',
+    padding: 15
   },
+
   item: {
     flex: 1,
     alignSelf: 'stretch',
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: '#eee',
-    backgroundColor: '#213159',
+    margin: 12,
+    borderBottomColor: 'lightsteelblue',
+    backgroundColor: 'lightslategrey',
+  },
+
+  imageStyle: {
+    width: 330,
+    height: 165,
   }
+
 });
