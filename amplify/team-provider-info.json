@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-mentalhealthapp-dev-211947-authRole",
+      "UnauthRoleArn": "arn:aws:iam::953511451861:role/amplify-mentalhealthapp-dev-211947-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::953511451861:role/amplify-mentalhealthapp-dev-211947-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-mentalhealthapp-dev-211947-deployment",
+      "UnauthRoleName": "amplify-mentalhealthapp-dev-211947-unauthRole",
+      "StackName": "amplify-mentalhealthapp-dev-211947",
+      "StackId": "arn:aws:cloudformation:us-west-2:953511451861:stack/amplify-mentalhealthapp-dev-211947/fdb9add0-14e6-11eb-8c19-06291b278cac",
+      "AmplifyAppId": "d3en6548er94r9"
+    }
+  }
+}
