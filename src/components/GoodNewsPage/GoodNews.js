@@ -81,7 +81,6 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     fontFamily: 'sans-serif-medium',
     color: 'white',
-    padding: 15
   },
 
   item: {
@@ -90,9 +89,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomWidth: 1,
-    margin: 12,
-    borderBottomColor: 'lightsteelblue',
-    backgroundColor: 'lightslategrey',
+    margin: 5,
+    borderBottomColor: '#eee',
+    backgroundColor: 'lightsteelblue',
   },
 
   imageStyle: {
