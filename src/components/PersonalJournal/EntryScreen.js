@@ -1,42 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     StyleSheet,
     Text,
     View,
     TextInput,
     ScrollView,
-    TouchableOpacity,
 } from 'react-native';
+import { Button } from '@ui-kitten/components';
 
-export default class EntryScreen extends React.Component {
-    static navigationOptions = {
-        title: 'New Entry',
-        headerShown: false,
+export const EntryScreen = ({ route, navigation }) => {
+
+    
+    const [text, entryText] = useState('')
+    
+    var d = new Date();
+
+    const navigationJournal= () => {
+        navigation.navigate('PersonalJournal');
     };
 
-    state = {
-        entryText: '',
-    }
+        
+    return (
 
-    render() {
-        var d = new Date();
-        return (
-            <View style={styles.container}>
-                <View style={styles.header}>
-                    <Text style={styles.headerText}></Text>
-                    <TouchableOpacity
-                        onPress={() => {
-                            this.props.navigation.goBack()
-                        }}
+        <View style={styles.container}>
+        <View style={styles.header}>
+        <Text style={styles.headerText}></Text>
+                    <Button
+                        onPress={navigationJournal}
                         style={styles.backButton}>
                         <Text style={styles.backButtonText}> Back </Text>
-                    </TouchableOpacity>
+                    </Button>
                 </View>
                 <ScrollView>
                     <TextInput
                         style={styles.textInput}
-                        onChangeText={(entryText) => this.setState({ entryText })}
-                        value={this.state.entryText}
+                        onChangeText={text => entryText( text )}
                         placeholder='New Entry'
                         multiline={true}
                         numberOfLines={30}
@@ -45,26 +43,21 @@ export default class EntryScreen extends React.Component {
                     </TextInput>
                 </ScrollView>
                 <View style={styles.buttonSection}>
-                    <TouchableOpacity
-                        onPress={() => {
-                            receivedValue(entryArray.push({
-                                'date': d.getFullYear() +
-                                    "/" + (d.getMonth() + 1) +
-                                    "/" + d.getDate(),
-                                'entry': this.state.entryText
-                            }))
-                            this.props.navigation.goBack()
-                        }}
+                    <Button
+                        onPress={() => 
+                            navigation.navigate('PersonalJournal', {
+                                entry: d.getFullYear() +
+                                "/" + (d.getMonth() + 1) +
+                                "/" + d.getDate() + "\n\n" + text
+                            })
+                        }
                         style={styles.addButton}>
                         <Text style={styles.addButtonText}>Enter</Text>
-                    </TouchableOpacity>
+                    </Button>
                 </View>
             </View>
         );
-    }
-
 }
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -93,21 +86,21 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         bottom: 20,
         right: 20,
-        backgroundColor: '#97D3BF',
+        backgroundColor: 'lightsteelblue',
         padding: 10,
         borderRadius: 5,
-        elevation: 8,
+        borderColor: "transparent"
     },
     addButtonText: {
         color: '#fff',
         fontSize: 24,
     },
     header: {
-        backgroundColor: '#97D3BF',
+        backgroundColor: 'lightsteelblue',
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
         borderBottomWidth: 5,
-        borderBottomColor: '#AECCC2',
+        borderBottomColor: 'lightsteelblue',
     },
     backButton: {
         position: 'absolute',
@@ -115,10 +108,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         bottom: 10,
         left: 10,
-        backgroundColor: '#97D3BF',
+        backgroundColor: 'lightsteelblue',
         padding: 10,
         borderRadius: 5,
         elevation: 8,
+        borderColor: "transparent"
     },
     backButtonText: {
         color: '#fff',

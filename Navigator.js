@@ -1,15 +1,15 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { HomeScreen } from './src/components/HomePage/HomePage';
-import { LoginScreen } from './src/components/LoginPage/LoginPage';
+import { EntryScreen } from './src/components/PersonalJournal/EntryScreen';
+import { PersonalJournal } from './src/components/PersonalJournal/PersonalJournal';
 
 const { Navigator, Screen } = createStackNavigator();
 
 const HomeNavigator = () => (
   <Navigator headerMode='none'>
-    <Screen name='Home' component={HomeScreen}/>
-    <Screen name='Login' component={LoginScreen}/>
+    <Screen name='PersonalJournal' component={PersonalJournal}/>
+    <Screen name='Entry' component={EntryScreen}/>
   </Navigator>
 );
 

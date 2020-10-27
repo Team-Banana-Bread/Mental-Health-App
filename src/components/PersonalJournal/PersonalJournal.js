@@ -7,64 +7,41 @@ import {
     ScrollView,
     TouchableOpacity,
 } from 'react-native';
+import { Button } from '@ui-kitten/components';
 import JournalEntry from './JournalEntry';
 
+export const PersonalJournal = ({ route, navigation }) => {
 
-export default class PersonalJournal extends React.Component {
-
-    static navigationOptions = {
-        title: 'Home',
-        headerShown: false,
-    };
-
-    state = { 
-        entryArray: [],
-    }
-
-    receivedValue = (value) => {
-        this.setState({value})
-    }
-
-    render(){
-
-        let entries = this.state.entryArray.map((val, key) => {
-            return <JournalEntry key={key} keyval={key} val={val}
-                deleteMethod={() => this.deleteEntry(key)}/>
-        });
+    const entries = route.params?.entry ?? ''
 
         return(
             <View style = {styles.container}>
                 <View style={styles.header}>
                 <Text style={styles.headerText}> JOURNAL </Text>
                 </View>
-
-                <TouchableOpacity style={styles.addButton}>
+                
+                
+                <Button onPress={() => navigation.navigate('Entry')} style={styles.addButton}>
                     <Text style={styles.addButtonText}>+</Text>
-                </TouchableOpacity>
-
-                <ScrollView style={styles.scrollContainer}>
-                    {entries}
-                </ScrollView>
+                </Button>
+                    
+                <Text style={styles.entryText}>{entries}</Text>
             </View>
         );
-    }
+        
+};
 
-    deleteEntry(key) {
-        this.state.entryArray.splice(key, 1);
-        this.setState({ entryArray: this.state.entryArray })
-    }
-}
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
     header: {
-        backgroundColor: '#97D3BF',
+        backgroundColor: 'lightsteelblue',
         alignItems: 'center',
         justifyContent: 'center',
         borderBottomWidth: 5,
-        borderBottomColor: '#AECCC2',
+        borderBottomColor: 'lightsteelblue',
     },
     headerText: {
         color: 'white',
@@ -80,16 +57,24 @@ const styles = StyleSheet.create({
         zIndex: 11,
         right: 20,
         bottom: 20,
-        backgroundColor: '#97D3BF',
+        backgroundColor: 'lightsteelblue',
         width: 90,
         height: 90,
         borderRadius: 50,
         alignItems: 'center',
         justifyContent: 'center',
         elevation: 8,
+        borderColor: "transparent"
     },
     addButtonText: {
         color: '#fff',
         fontSize: 24,
+    },
+    entryText: {
+        paddingLeft: 20,
+        borderLeftWidth: 10,
+        borderLeftColor: '#E91E63',
+        borderBottomWidth: 2,
+        borderBottomColor: '#ededed',
     },
 });

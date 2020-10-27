@@ -11,7 +11,7 @@ export default class App extends React.Component {
     
       return (
           <ApplicationProvider {...eva} theme={eva.dark}>
-            <PersonalJournal/>
+            <AppNavigator/>
           </ApplicationProvider>
       )
 
