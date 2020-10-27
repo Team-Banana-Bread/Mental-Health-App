@@ -1,51 +1,45 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     StyleSheet,
     Text,
     View,
-    TouchableOpacity
+    TextInput,
+    ScrollView,
+    TouchableOpacity,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import { Button } from '@ui-kitten/components';
+import { FlatList } from 'react-native-gesture-handler';
 
-export default class JournalEntry extends React.Component {
-    render() {
-        return (
-            <View key={this.props.keyval} style={styles.entry}>
-
-                <Text styles={styles.entryText}>{this.props.val.date}</Text>
-                <Text styles={styles.entryText}>{this.props.val.entry}</Text>
-
-                <TouchableOpacity onPress={this.props.deleteMethod} style={styles.entryDelete}>
-                    <Text style={styles.entryDeleteText}>Delete</Text>
+const JournalEntry = ({item, deleteItem}) => {
+        return(
+                <TouchableOpacity style={styles.entryItem}>
+                    <View style={styles.entryItemView}>
+                        <Text style={styles.entryItemText}>{item.text}</Text>
+                        <Icon name="remove" size={20} color="firebrick" onPress={() => deleteItem(item.id)}/>
+                    </View>
                 </TouchableOpacity>
-            </View>
         );
-    }
-}
+        
+};
 
 const styles = StyleSheet.create({
-    entry: {
-        position: 'relative',
-        padding: 20,
-        paddingRight: 100,
-        borderBottomWidth: 2,
-        borderBottomColor: '#ededed',
+    entryItem:{
+        padding: 15,
+        backgroundColor: '#f8f8f8',
+        borderBottomWidth: 1,
+        borderColor: '#eee',
     },
-    entryText: {
-        paddingLeft: 20,
-        borderLeftWidth: 10,
-        borderLeftColor: '#E91E63',
-    },
-    entryDelete: {
-        position: 'absolute',
-        justifyContent: 'center',
+    entryItemView: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: '#2980b9',
-        padding: 10,
-        top: 10,
-        bottom: 10,
-        right: 10,
     },
-    entryDeleteText: {
-        color: 'white',
+    entryItemText: {
+        fontSize: 18,
+        
     }
 });
+
+export default JournalEntry;
+

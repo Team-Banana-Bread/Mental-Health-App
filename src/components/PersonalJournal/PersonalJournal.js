@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     StyleSheet,
     Text,
@@ -6,26 +6,43 @@ import {
     TextInput,
     ScrollView,
     TouchableOpacity,
+    Alert
 } from 'react-native';
 import { Button } from '@ui-kitten/components';
 import JournalEntry from './JournalEntry';
+import AddEntry from './AddEntry';
+import { FlatList } from 'react-native-gesture-handler';
+import { v4 as uuidv4 } from 'uuid';    
 
-export const PersonalJournal = ({ route, navigation }) => {
+const PersonalJournal = () => {
+    const [items, setItems] = useState([
+    ]);
 
-    const entries = route.params?.entry ?? ''
+    const deleteItem = (id) => {
+        setItems(previousItems => {
+            return previousItems.filter(item => item.id != id);
+        });
+    };
+
+    const addItem = (text) => {
+        if(!text){
+            Alert.alert('Error', 'Please enter something', [{text: "OK", onPress: () => console.log("OK Pressed")}], {cancelable: true }
+            )}else{
+            setItems(previousItems => {
+                return [{id: uuidv4(), text},...previousItems];
+            });
+        }
+    }
 
         return(
             <View style = {styles.container}>
-                <View style={styles.header}>
-                <Text style={styles.headerText}> JOURNAL </Text>
-                </View>
-                
-                
-                <Button onPress={() => navigation.navigate('Entry')} style={styles.addButton}>
-                    <Text style={styles.addButtonText}>+</Text>
-                </Button>
-                    
-                <Text style={styles.entryText}>{entries}</Text>
+                    <Text style={styles.header}> JOURNAL </Text>
+                    <AddEntry addItem={addItem}/>
+                    <FlatList
+                        data={items} renderItem={({item}) => 
+                        <JournalEntry item={item}
+                        deleteItem={deleteItem}/> 
+        }/>
             </View>
         );
         
@@ -42,11 +59,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderBottomWidth: 5,
         borderBottomColor: 'lightsteelblue',
-    },
-    headerText: {
         color: 'white',
         fontSize: 20,
         padding: 26,
+        textAlign: 'center'
     },
     scrollContainer: {
         flex: 1,
@@ -78,3 +94,5 @@ const styles = StyleSheet.create({
         borderBottomColor: '#ededed',
     },
 });
+
+export default PersonalJournal;
