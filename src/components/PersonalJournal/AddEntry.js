@@ -11,7 +11,7 @@ const AddEntry = ({title, addItem}) => {
             <TextInput placeholder="New Entry" style={styles.input} 
                         onChangeText={onChange} blurOnSubmit={false} multiline={true} returnKeyType='none'/>
             <Button style={styles.btn} onPress={() => addItem(text)}>
-                <Text style={styles.btnText}><Icon name="plus" size={20}/>Add Entry</Text>
+                <Text style={styles.btnText}><Icon name="plus" size={20}/> Add Entry </Text>
             </Button>
         </View>
     );
