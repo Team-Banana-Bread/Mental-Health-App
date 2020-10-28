@@ -1,31 +1,11 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
-  Text,
-  StatusBar,
-  ActivityIndicator, ImagePropTypes
+  Linking,
+  Image
 } from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-import Icon from 'react-native-vector-icons/Ionicons';
+import { Text } from '@ui-kitten/components';
 
 export default class App extends React.Component {
 
@@ -39,7 +19,7 @@ constructor(props){
 
 componentDidMount (){
 
-  return fetch('https://www.reddit.com/r/UpliftingNews/new.json?limit=5')
+  return fetch('https://www.reddit.com/r/UpliftingNews/new.json')
     .then ( (response) => response.json() )
     .then( (responseJson) => {
 
@@ -57,7 +37,6 @@ componentDidMount (){
 
 }
 
-
   render(){
 
     if (this.state.isLoading) {
@@ -72,8 +51,11 @@ componentDidMount (){
 
       let movies = this.state.dataSource.map((val, key) => {
         return <View key={key} style={styles.item}>
-              <Text>{val.data.title}</Text>
-              <Icon name="md-menu" size={30} />
+              <Image source={{uri:val.data.thumbnail}} style={ styles.imageStyle }/>
+              <Text onPress={() => Linking.openURL(val.data.url_overridden_by_dest)}
+                    style={styles.sectionDescription}>
+                {val.data.title}
+              </Text>
         </View>
       });
 
@@ -91,49 +73,30 @@ componentDidMount (){
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
+
   sectionDescription: {
-    marginTop: 8,
+    marginTop: 10,
+    marginBottom: 25,
     fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
+    fontWeight: 'normal',
+    fontFamily: 'sans-serif-medium',
+    color: 'white',
   },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
+
   item: {
     flex: 1,
     alignSelf: 'stretch',
-    margin: 10,
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: '#eee'
+    margin: 5,
+    borderBottomColor: '#eee',
+    backgroundColor: 'lightsteelblue',
+  },
+
+  imageStyle: {
+    width: 330,
+    height: 165,
   }
+
 });
