@@ -51,7 +51,7 @@ componentDidMount (){
     } else {
 
       let movies = this.state.dataSource.map((val, key) => {
-        return <View style={styles.item}>
+        return <View key={key} style={styles.item}>
               <Image source={{uri:val.data.thumbnail}} style={ styles.imageStyle }/>
               <Text onPress={() => Linking.openURL(val.data.url_overridden_by_dest)}
                     style={styles.sectionDescription}>
