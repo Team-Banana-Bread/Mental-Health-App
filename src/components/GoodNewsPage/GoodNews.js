@@ -3,8 +3,9 @@ import {
   StyleSheet,
   View,
   Linking,
-  Image
+  Image,
 } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import { Text } from '@ui-kitten/components';
 
 export default class App extends React.Component {
@@ -50,20 +51,22 @@ componentDidMount (){
     } else {
 
       let movies = this.state.dataSource.map((val, key) => {
-        return <View key={key} style={styles.item}>
+        return <View style={styles.item}>
               <Image source={{uri:val.data.thumbnail}} style={ styles.imageStyle }/>
               <Text onPress={() => Linking.openURL(val.data.url_overridden_by_dest)}
                     style={styles.sectionDescription}>
                 {val.data.title}
               </Text>
-        </View>
+          </View> 
       });
 
       return (
 
-        <View style={styles.item}>
+        <ScrollView>
+          <View style={styles.item}>
           {movies}
-        </View>
+          </View>
+        </ScrollView>
 
       );
 
@@ -86,9 +89,9 @@ const styles = StyleSheet.create({
   item: {
     flex: 1,
     alignSelf: 'stretch',
+    borderBottomWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    borderBottomWidth: 1,
     margin: 5,
     borderBottomColor: '#eee',
     backgroundColor: 'lightsteelblue',
