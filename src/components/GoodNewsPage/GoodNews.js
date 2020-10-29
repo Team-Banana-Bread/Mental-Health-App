@@ -50,7 +50,7 @@ componentDidMount (){
 
     } else {
 
-      let movies = this.state.dataSource.map((val, key) => {
+      let articles = this.state.dataSource.map((val, key) => {
         return <View key={key} style={styles.item}>
               <Image source={{uri:val.data.thumbnail}} style={ styles.imageStyle }/>
               <Text onPress={() => Linking.openURL(val.data.url_overridden_by_dest)}
@@ -64,7 +64,7 @@ componentDidMount (){
 
         <ScrollView>
           <View style={styles.item}>
-          {movies}
+          {articles}
           </View>
         </ScrollView>
 
