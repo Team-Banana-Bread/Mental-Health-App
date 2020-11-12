@@ -21,17 +21,19 @@ export const SignUp = ({navigation}) => {
 
             <View style = {styles.container}>
 
-                <Button class = "arrow left" style = {styles.BackButton} onPress={navigationLogin}>Back</Button>
+                <Button class = "arrow left" style = {styles.BackButton} onPress={navigationLogin}>
+                    <Text style={styles.backButtonText}>Back</Text>
+                </Button>
 
                 <Text style={styles.header}>Sign Up</Text>
 
-                <TextInput style={styles.textinput} placeholder="Name" placeholderTextColor = '#f8f8f8'
+                <TextInput style={styles.textinput} placeholder="Name" placeholderTextColor = '#31455a'
                 underlineColorAndroid={'transparent'} />  
 
-                <TextInput style={styles.textinput} placeholder="Email" placeholderTextColor = '#f8f8f8'
+                <TextInput style={styles.textinput} placeholder="Email" placeholderTextColor = '#31455a'
                 underlineColorAndroid={'transparent'} />                
 
-                <TextInput style={styles.textinput} placeholder="Password" placeholderTextColor = '#f8f8f8'
+                <TextInput style={styles.textinput} placeholder="Password" placeholderTextColor = '#31455a'
                 secureTextEntry={true} 
                 underlineColorAndroid={'transparent'} />         
 
@@ -45,22 +47,22 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: '#36485f',
+        backgroundColor: 'lightsteelblue',
         paddingLeft: 60,
         paddingRight: 60,
     },
     header: {
         textAlign: 'center',
         fontSize: 24,
-        color: '#fff',
+        color: '#31455a',
         paddingBottom: 10,
         marginBottom: 40,
-        borderBottomColor: '#199187',
+        borderBottomColor: '#f8f8f8',
         borderBottomWidth: 1,
     },
     textinput: {        
         alignSelf: 'stretch',
-        color: '#f8f8f8',
+        color: '#31455a',
         height: 40,
         marginBottom: 35,
         borderBottomColor: '#f8f8f8',
@@ -68,7 +70,7 @@ const styles = StyleSheet.create({
     },
     SignUpText: {
         textAlign: 'center',
-        color: '#f8f8f8',
+        color: '#31455a',
         marginTop: 30
     },
     buttonSignIn: {
@@ -93,13 +95,18 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     buttonSignUpTextColor:{
-        color: '#15424f',
+        color: '#31455a',
         fontWeight: 'bold',
     },
     BackButton: {
-        backgroundColor:  '#00000000',
+        color: '#31455a',
+        backgroundColor:  '#b3f5f5',
         marginBottom: 35,
         width: '30%',
-        borderColor: 'white'                                         
+        borderColor: 'transparent'                                         
+    },
+    backButtonText: {
+        color: '#31455a',
+        fontWeight: 'bold',
     }
 });

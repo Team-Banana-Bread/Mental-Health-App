@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 
     buttonStyle: {
         fontSize: 12,
-        backgroundColor: 'lightslategrey',
+        backgroundColor: '#31455a',
         color: 'linen',
         borderColor: 'transparent'
     }

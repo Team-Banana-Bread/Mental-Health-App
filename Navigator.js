@@ -9,8 +9,8 @@ const Stack = createStackNavigator();
 export const AppNavigator = () => (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='Home' component={HomeNavigator}/>
-        <Stack.Screen name='App' component={TabNavigator}/>
+        <Stack.Screen name='Home' options={{headerShown: false}} component={HomeNavigator}/>
+        <Stack.Screen name='App' options={{headerShown: false}} component={TabNavigator}/>
       </Stack.Navigator>
     </NavigationContainer>
 );
