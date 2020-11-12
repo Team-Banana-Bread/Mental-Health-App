@@ -7,39 +7,39 @@ import{
 } from 'react-native';
 import { Button } from '@ui-kitten/components';
 
-export const LoginScreen = ({navigation}) => {    
+export const SignUp = ({navigation}) => {       
 
     const navigationSignUp = () => {
         navigation.navigate('SignUp');
+    };    
+
+    const navigationLogin = () => {
+        navigation.navigate('Login');
     };
 
-    const navigationApp = () => {
-        navigation.navigate('App');
-    };
-
-    return (    
+    return (                
 
             <View style = {styles.container}>
-                <Text style={styles.header}>Sign In</Text>
+
+                <Button class = "arrow left" style = {styles.BackButton} onPress={navigationLogin}>Back</Button>
+
+                <Text style={styles.header}>Sign Up</Text>
+
+                <TextInput style={styles.textinput} placeholder="Name" placeholderTextColor = '#f8f8f8'
+                underlineColorAndroid={'transparent'} />  
 
                 <TextInput style={styles.textinput} placeholder="Email" placeholderTextColor = '#f8f8f8'
                 underlineColorAndroid={'transparent'} />                
 
                 <TextInput style={styles.textinput} placeholder="Password" placeholderTextColor = '#f8f8f8'
                 secureTextEntry={true} 
-                underlineColorAndroid={'transparent'} />
-
-                <Button onPress={navigationApp} style={styles.buttonSignIn}>
-                    <Text style={styles.buttonSignInTextColor}> Sign in</Text>
-                </Button>
-
-                <Text style = {styles.SignUpText}>Don't Have an Account? </Text>
+                underlineColorAndroid={'transparent'} />         
 
                 <Button style={styles.buttonSignUp} onPress={navigationSignUp}>
                     <Text style={styles.buttonSignUpTextColor}> Sign up</Text>                    
                 </Button>
             </View>
-    )};        
+    )};
 
 const styles = StyleSheet.create({
     container: {
@@ -76,8 +76,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 20,
         backgroundColor: '#59cbbd',
-        marginTop: 30,    
-        borderColor: 'transparent'    
+        marginTop: 30,        
     },
     buttonSignUp: {
         alignSelf: 'stretch',
@@ -96,5 +95,11 @@ const styles = StyleSheet.create({
     buttonSignUpTextColor:{
         color: '#15424f',
         fontWeight: 'bold',
+    },
+    BackButton: {
+        backgroundColor:  '#00000000',
+        marginBottom: 35,
+        width: '30%',
+        borderColor: 'white'                                         
     }
 });
